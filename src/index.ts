@@ -19,11 +19,8 @@ const appList = APP_LIST?.split(", ") || [];
   console.log(">> MONGODB connected");
 })();
 
-app.use(express.static(path.join(__dirname, 'static'), {
-  maxAge: 8640000
-}));
 app.use(cors(function (req, callback) {
-  var corsOptions;
+  let corsOptions;
   if (appList.indexOf(req.header('Origin') || '') !== -1) {
     corsOptions = { origin: true } // reflect (enable) the requested origin in the CORS response
   } else {
@@ -31,6 +28,9 @@ app.use(cors(function (req, callback) {
   }
   callback(null, corsOptions) // callback expects two parameters: error and options
 }))
+app.use(express.static(path.join(__dirname, 'static'), {
+  maxAge: 8640000
+}));
 app.use(express.json());
 app.use(fileRouter);
 app.listen(port, () => {

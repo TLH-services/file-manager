@@ -7,6 +7,7 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     // Kiểm tra mimetype
     const { allowMimes } = req.body as { allowMimes: string[] };
+    console.log(req.body)
     if (allowMimes && !allowMimes.includes(file.mimetype)) {
       cb(null, false);
       return cb(new Error('File extension not allowed ' + allowMimes.join(', ')));
