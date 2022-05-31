@@ -28,9 +28,7 @@ app.use(cors(function (req, callback) {
   }
   callback(null, corsOptions) // callback expects two parameters: error and options
 }))
-app.use(express.static(path.join(__dirname, 'static'), {
-  maxAge: 8640000
-}));
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 app.use(fileRouter);
 app.listen(port, () => {

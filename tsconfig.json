@@ -13,9 +13,7 @@
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,
-    /* Strict Type-Checking Options */
     "strict": true,
-    /* Additional Checks */
     "forceConsistentCasingInFileNames": true,
     "importsNotUsedAsValues": "error",
     "isolatedModules": true,
@@ -24,7 +22,6 @@
     "noImplicitReturns": true,
     "noPropertyAccessFromIndexSignature": true,
     "noUnusedLocals": true,
-    /* Module Resolution Options */
     "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
@@ -36,12 +33,9 @@
     }
   },
   "include": [
-    "src",
+    "src"
   ],
   "exclude": [
     "node_modules"
-  ],
-  "ts-node": {
-    "require": ["tsconfig-paths/register"]
-  }
+  ]
 }
