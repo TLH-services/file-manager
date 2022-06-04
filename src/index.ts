@@ -2,12 +2,14 @@ import express from 'express';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import fs from 'fs';
+import path from 'path';
 
 import fileRouter from './routes/file.route';
-import path from 'path';
 
 dotenv.config();
 const app = express();
+fs.mkdirSync(path.join(__dirname, 'static', 'files'), { recursive: true, mode: '775' });
 const { PORT, MONGO_CONNECTSTRING, MONGO_USER, MONGO_PASSWORD, APP_LIST } = process.env;
 const port = parseInt(PORT || '3001', 10);
 const appList = APP_LIST?.split(", ") || [];
